@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css"; // keep styling linked here
-
+import './styles/Hero_section.css';
 const HeroSection = () => {
   return (
     <section className="hero-section">

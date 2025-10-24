@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import './styles/Navbar.css';
+import './styles/Footer.css';
 import ProjectsCarousel from './ProjectsCarousel';
 import HeroSection from "./Hero_Section";
 import AboutSection from "./AboutSection";
