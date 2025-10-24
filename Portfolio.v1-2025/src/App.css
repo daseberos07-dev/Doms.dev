@@ -1,0 +1,68 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent normal scroll */
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 🌟 Fixed Hero */
+.hero {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  color: white;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
+
+.hero-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.hero-role {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* 🌀 Section Styles */
+.sections {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 1;
+}
+
+.section:not(.active) {
+  z-index: 0;
+}

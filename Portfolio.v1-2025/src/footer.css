@@ -1,0 +1,89 @@
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 16px;
+  z-index: 500;
+}
+
+.footer-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  color: #cfcfcf;
+}
+
+/* === ICON LINKS === */
+.list-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.list-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.list-icons a img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.list-icons a:hover {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 12px #00ffff, 0 0 25px #ff00ff;
+  transform: translateY(-2px);
+}
+
+.list-icons a:hover img {
+  opacity: 1;
+  filter: brightness(1);
+}
+
+/* === TEXT CONTENT (Optional Right Section) === */
+.list-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #8f8f8f;
+}
+
+.list-content a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list-content a:hover {
+  color: #ff00ff;
+}
+@media (max-width: 900px) {
+  .footer-section {
+    position: fixed;
+    bottom: 1.5px;
+    height: 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+/* === RESPONSIVE === */
+@media (max-width: 478px) {
+
+}
