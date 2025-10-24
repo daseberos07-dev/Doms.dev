@@ -1,0 +1,196 @@
+
+/* ABOUT */
+.about-section {
+  color: #0ff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titles-container {
+  position: relative;
+  max-width: 60vw;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.about-titles-grid {
+  display: grid;
+  /* responsive: auto-fit columns that are at least 180px wide, otherwise stretch */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch; /* ensure children stretch to equal height */
+}
+
+.title-btn {
+  background: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* enforce equal visual size across different columns/rows without breakpoints */
+  aspect-ratio: 3 / 1; /* adjust ratio if you want taller or shorter buttons */
+}
+
+.title-btn:hover {
+  background: #0ff;
+  color: #000;
+  transform: translateY(-2px) scale(0.9);
+}
+
+/* Ensure title buttons are not selectable (override global exceptions) */
+.title-btn,
+.title-btn * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+
+/* Modal styles */
+/* ===========================
+   💠 ABOUT MODAL STYLES
+   =========================== */.about-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.about-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-width: 700px;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay to ensure readability */
+.about-modal-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
+
+/* All text goes above the overlay */
+.about-modal-title-wrapper,
+.about-modal-body-wrapper,
+.about-modal-content h2,
+.about-modal-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title styling */
+.about-modal-title-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.about-modal-title-wrapper h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Body wrapper (image no longer separate, entire modal is background) */
+.about-modal-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-modal-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Close button */
+.about-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: 1px solid #0ff;
+  color: #0ff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.about-modal-close:hover {
+  border-radius: 0;
+}
+
+/* Animations */
+.about-modal-overlay.show { animation: overlayIn 260ms ease forwards; }
+.about-modal-content.show { animation: contentIn 260ms cubic-bezier(.2,.8,.2,1) forwards; }
+.about-modal-overlay.closing { animation: overlayOut 220ms ease forwards; }
+.about-modal-content.closing { animation: contentOut 220ms ease forwards; }
+
+@keyframes overlayIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes overlayOut { from { opacity: 1 } to { opacity: 0 } }
+@keyframes contentIn { from { opacity: 0; transform: translateY(10px) scale(0.98) } to { opacity: 1; transform: translateY(0) scale(1) } }
+@keyframes contentOut { from { opacity: 1; transform: translateY(0) scale(1) } to { opacity: 0; transform: translateY(6px) scale(0.98) } }
+
+/* Responsive: modal body stacked on mobile, text left on larger screens */
+@media (min-width: 768px) {
+  .about-modal-body-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+/* Ensure mobile shows 2 columns and stays centered (avoid overlap with header/footer) */
+@media (max-width: 630px) {
+  .about-section {
+    padding-top: 80px; /* create space from header */
+    padding-bottom: 80px; /* create space from footer */
+  }
+
+  .titles-container {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  .about-titles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .title-btn {
+    aspect-ratio: 2 / 1; /* slightly taller buttons on small screens */
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
