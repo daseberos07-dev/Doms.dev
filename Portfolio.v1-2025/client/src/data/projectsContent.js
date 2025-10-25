@@ -1,4 +1,4 @@
- import bananaLeafHero1 from '../assets/bananaLeafHero.svg';
+ import bananaLeafHero1 from '../assets/bg-images/bananaLeafHero.svg';
 
       const projects = [
         {

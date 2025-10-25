@@ -1,6 +1,8 @@
 import React from "react";
 import "../App.css"; // keep styling linked here
 import '../styles/Hero_section.css';
+import profileImg from '../assets/bg-images/noBG_prof.png';
+
 const HeroSection = () => {
   return (
     <section className="hero-section">
@@ -31,7 +33,7 @@ const HeroSection = () => {
       </div>
 
       <div className="hero-profile">
-        <img src="./noBG_prof.png" alt="Profile" />
+        <img src={profileImg}/>
       </div>
     </section>
   );

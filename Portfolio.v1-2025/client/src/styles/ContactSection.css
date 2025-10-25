@@ -23,7 +23,8 @@
   padding: 40px 60px;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
+  width: 100%;
+  max-width: 800px;
   width: 100%;
   gap: 60px;
 }
@@ -95,8 +96,9 @@
 }
 
 .alert.success {
-  background-color: #dcfce7;
-  color: #166534;
+  background-color: #818181;
+  font-size: 1.2rem;
+  color: #000000;
   border: 1px solid #22c55e;
 }
 

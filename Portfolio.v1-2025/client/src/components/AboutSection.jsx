@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import aboutCards from "../data/aboutCards"; 
 import '../styles/About_section.css';
-import SkillsIcons from "../components/SkillsIcons";
+import SkillsIcons from "./SkillsIcons";
 
 const AboutSection = ({ setModalOpen, modalOpen }) => {
   const [modalContent, setModalContent] = useState({ title: "", text: "" });

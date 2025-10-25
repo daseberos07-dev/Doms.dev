@@ -6,6 +6,13 @@ import HeroSection from './components/Hero_Section';
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/Contact_Section";
 
+
+/* import icons footer */
+import github from './assets/footer-icons/github.svg';
+import gmail from './assets/footer-icons/gmail.svg';
+import tg from './assets/footer-icons/tg.svg';
+import linkedIn from './assets/footer-icons/linkedIn.svg';
+
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [scrolling, setScrolling] = useState(false);
@@ -166,10 +173,10 @@ useEffect(() => {
       <footer>
         <div className="footer-section">
            <ul className="list-icons">
-            <a href=""><img src="./github.svg" alt="" /></a>
-            <a href=""><img src="./gmail.svg" alt="" /></a>
-            <a href=""><img src="./tg.svg" alt="" /></a>
-            <a href=""><img src="./linkedIn.svg" alt="" /></a>
+            <a href=""><img src={github} alt="" /></a>
+            <a href=""><img src={tg} alt="" /></a>
+            <a href=""><img src={gmail} alt="" /></a>
+            <a href=""><img src={linkedIn} alt="" /></a>
 
            </ul>
            <ul className="list-content">

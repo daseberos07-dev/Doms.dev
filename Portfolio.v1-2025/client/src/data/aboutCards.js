@@ -1,12 +1,12 @@
-import startedImg from '../assets/started.svg';
-import getToKnowMe from '../assets/getToKnowMe.svg';
-import howIsIt from '../assets/howIsIt.svg';
-import whatIknow from '../assets/whatIknow.svg';
-import mySkills from '../assets/mySkills.svg';
-import myGoal from '../assets/myGoal.svg';
-import quote from '../assets/quote.svg';
-import education from '../assets/education.svg';
-import logoImg from '../assets/logoUMTC.svg';
+import startedImg from '../assets/bg-images/started.svg';
+import getToKnowMe from '../assets/bg-images/getToKnowMe.svg';
+import howIsIt from '../assets/bg-images/howIsIt.svg';
+import whatIknow from '../assets/bg-images/whatIknow.svg';
+import mySkills from '../assets/bg-images/mySkills.svg';
+import myGoal from '../assets/bg-images/myGoal.svg';
+import quote from '../assets/bg-images/quote.svg';
+import education from '../assets/bg-images/education.svg';
+import logoImg from '../assets/bg-images/logoUMTC.svg';
 
 const iconFiles = import.meta.glob('../assets/icons/*.svg', { eager: true });
 
