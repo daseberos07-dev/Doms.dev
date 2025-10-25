@@ -1,8 +1,8 @@
 // src/components/AboutSection.jsx
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import aboutCards from "./data/aboutCards"; 
-import './styles/About_section.css';
+import aboutCards from "../data/aboutCards"; 
+import '../styles/About_section.css';
+import SkillsIcons from "../components/SkillsIcons";
 
 const AboutSection = ({ setModalOpen, modalOpen }) => {
   const [modalContent, setModalContent] = useState({ title: "", text: "" });
@@ -62,29 +62,65 @@ const AboutSection = ({ setModalOpen, modalOpen }) => {
 
     {localModalVisible && (
   <div
-    className={`about-modal-overlay ${modalClosing ? "closing" : "show"}`}
-    onClick={closeModal}
+  className={`about-modal-overlay ${modalClosing ? "closing" : "show"}`}
+  onClick={closeModal}
+>
+  <div
+    className={`about-modal-content ${modalClosing ? "closing" : "show"}`}
+    onClick={(e) => e.stopPropagation()}
+    role="dialog"
+    aria-modal="true"
+    style={{ backgroundImage: `url(${modalContent.image || ''})` }}
   >
-    <div
-      className={`about-modal-content ${modalClosing ? "closing" : "show"}`}
-      onClick={(e) => e.stopPropagation()}
-      role="dialog"
-      aria-modal="true"
-      style={{ backgroundImage: `url(${modalContent.image || ''})` }}
-    >
-      <button className="about-modal-close" onClick={closeModal}>✕</button>
+    <button className="about-modal-close" onClick={closeModal}>✕</button>
 
-      <div className="about-modal-title-wrapper">
-        <h2>{modalContent.title}</h2>
-      </div>
+    <div className="about-modal-title-wrapper">
+      <h2>{modalContent.title}</h2>
+    </div>
 
-      <div className="about-modal-body-wrapper">
-        <div className="about-modal-body">
-          <p>{modalContent.text}</p>
+    <div className="about-modal-body-wrapper">
+      <div className="about-modal-body">
+        <p>{modalContent.text}</p>
+
+{modalContent.type === "education" && modalContent.logo_img && (
+  <div className="education-container">
+    <div className="education-logo">
+      <img 
+        src={modalContent.logo_img} 
+        alt="Education Logo" 
+      />
+    </div>
+    <div className="education-description">
+      <p>{modalContent.description}</p>
+      <p className="education-year">{modalContent.year}</p>
+    </div>
+  </div>
+)}
+
+        {/* Only show categories and icons for "My Skills" */}
+  {modalContent.title === "My Skills" && modalContent.categories && (
+  <>
+    <SkillsIcons icons={modalContent.icons} />
+    <div className="skills-categories">
+      {Object.entries(modalContent.categories).map(([category, skills]) => (
+        <div key={category} className="skill-category">
+          <h4>{category}</h4>
+          <ul>
+            {skills.map((skill) => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
         </div>
+      ))}
+    </div>
+  </>
+)}
+
       </div>
     </div>
   </div>
+</div>
+
 )}
 
 

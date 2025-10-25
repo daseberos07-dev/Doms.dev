@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import './styles/Navbar.css';
 import './styles/Footer.css';
-import ProjectsCarousel from './ProjectsCarousel';
-import HeroSection from "./Hero_Section";
-import AboutSection from "./AboutSection";
+import ProjectsCarousel from './components/ProjectsCarousel';
+import HeroSection from './components/Hero_Section';
+import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/Contact_Section";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,7 +19,7 @@ function App() {
     {
       id: 1,
       content: (
-        <HeroSection setModalOpen={setModalOpen}  />
+        <HeroSection />
       ),
       color: "#111",
     },
@@ -41,9 +42,8 @@ function App() {
       id: 4,
       content: (
         <section className="contact-section">
-          <h1>Contact</h1>
-          <p>Email: domince.dev@example.com</p>
-          <p>LinkedIn: @dominceaseberos</p>
+          <ContactSection />
+        
         </section>
       ),
       color: "#111",

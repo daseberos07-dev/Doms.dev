@@ -27,9 +27,9 @@
 }
 
 .title-btn {
-  background: transparent;
   border: 2px solid #0ff;
-  color: rgba(172, 137, 255, 0.493);
+  color: rgb(255, 255, 255);
+  outline:2px solid rgb(84, 124, 255);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -173,10 +173,136 @@
   }
 }
 
+
+
+
+/* Container for all icons */
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.skills-icons {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  background-color: rgba(154, 158, 158, 0.386);
+  border-radius: 25px;
+  justify-content: space-between;
+  scrollbar-width: thin;  /* Firefox */
+  -webkit-overflow-scrolling: touch; /* smooth on iOS */
+  padding: 0.7rem;
+  cursor: grab;           /* indicates draggable */
+}
+
+.skills-icons:active {
+  cursor: grabbing;
+}
+
+
+/* Container for all categories */
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 20px;
+  max-height: 150px; /* adjust modal body scroll height */
+  overflow-y: auto;  /* vertical scroll if content is long */
+  padding-right: 10px; /* avoid scrollbar overlapping content */
+}
+
+
+.skills-categories {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f0f0f000; /* thumb color, track color */
+}
+
+/* Webkit browsers (Chrome, Edge, Safari) */
+.skills-categories::-webkit-scrollbar {
+  width: 8px;       
+  background: #707070;  /* track color */
+      /* width of the vertical scrollbar */
+}
+
+.skills-categories::-webkit-scrollbar-track {
+  background: #515151;  /* track color */
+  border-radius: 4px;
+}
+
+.skills-categories::-webkit-scrollbar-thumb {
+  background-color: #888; /* thumb color */
+  border-radius: 4px;
+  border: 2px solid #f0f0f0; /* gives some padding around thumb */
+}
+
+.skills-categories::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* darker on hover */
+}
+
+
+/* Each category box */
+.skill-category h4 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skill-category ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.skill-category li {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+
+/* EDUCATION */
+.education-container {
+  display: flex;
+  align-items: flex-start; /* align logo and description top */
+  gap: 30px;               /* space between logo and text */
+  flex-wrap: wrap;          /* wrap on small screens */
+  margin-top: 15px;
+}
+
+
+
+.education-logo img {
+  width: 150px;
+  height: auto;
+}
+
+.education-description {
+  flex: 1; /* take remaining space */
+  font-size: 0.95rem;
+}
+
+.education-year {
+  font-weight: 600;
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 600px) {
+  .education-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .education-description {
+    flex: unset;
+  }
+}
 /* Ensure mobile shows 2 columns and stays centered (avoid overlap with header/footer) */
+
 @media (max-width: 630px) {
   .about-section {
-    padding-top: 80px; /* create space from header */
+    padding-top: 180px; 
     padding-bottom: 80px; /* create space from footer */
   }
 
@@ -189,10 +315,24 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
-
+  
+  .skill-icon{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+  }
   .title-btn {
     aspect-ratio: 2 / 1; /* slightly taller buttons on small screens */
     font-size: 0.95rem;
     padding: 0.6rem 0.8rem;
+  }
+  .about-modal-title-wrapper h2{
+    font-size: 1.2rem;
+  }
+    .about-modal-body p{
+    font-size: 0.8rem;
+  }
+  .skill-category ul li{
+    font-size: 0.8rem;
   }
 }

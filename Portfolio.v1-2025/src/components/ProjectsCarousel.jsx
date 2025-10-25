@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import projects from './data/projectsContent';
-import './styles/Project_section.css';
+import '../App.css';
+import projects from '../data/projectsContent';
+import '../styles/Project_section.css';
+
+
 const ProjectsCarousel = ({ setModalOpen, modalOpen }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -56,7 +58,7 @@ const ProjectsCarousel = ({ setModalOpen, modalOpen }) => {
         <div className="projects-container">
           <div className="projects-header">
             <h2>Projects</h2>
-            <p>Explore our latest work and innovations</p>
+           <p>Explore what I’ve been building lately.</p>
           </div>
 
           <div className="carousel-wrapper">

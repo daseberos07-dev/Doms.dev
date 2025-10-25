@@ -1,3 +1,4 @@
+ import bananaLeafHero1 from '../assets/bananaLeafHero.svg';
 
       const projects = [
         {
@@ -11,26 +12,16 @@
         },
         {
           id: 2,
-          title: 'Focus Quest – Productivity RPG',
-          shortDesc: 'Gamified productivity and task management',
-          fullDesc: 'Turn your productivity into an adventure! Focus Quest is a gamified task management app that transforms your to-do list into an RPG experience. Complete tasks to level up your character, earn rewards, and unlock achievements. Built with React, featuring smooth animations and persistent data storage.',
-          image: 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop',
-          link :'link2',
-          readMore: 'readMore2'
-      
-        },
-        {
-          id: 3,
           title: 'Banana Leaf Disease Detector',
           shortDesc: 'AI-powered agricultural disease detection',
           fullDesc: 'An intelligent machine learning model trained to detect diseases in banana plants using image recognition. Farmers can upload leaf images to receive instant diagnostic results with treatment recommendations. Built with TensorFlow, React frontend, and Firebase backend.',
-          image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&h=400&fit=crop',
-        link :'link3',
+          image: bananaLeafHero1,
+          link :'link3',
           readMore: 'readMore3'
       
       },
         {
-          id: 4,
+          id: 3,
           title: 'E-Commerce Platform',
           shortDesc: 'Full-featured online shopping solution',
           fullDesc: 'A complete e-commerce platform with product catalog, shopping cart, payment integration, and order tracking. Features include admin dashboard for inventory management, user authentication, and email notifications. Built with React, Express, and MongoDB.',
@@ -40,7 +31,7 @@
       
       },
         {
-          id: 5,
+          id: 4,
           title: 'Weather Dashboard',
           shortDesc: 'Real-time weather forecasting application',
           fullDesc: 'A beautiful weather dashboard that provides real-time weather data, hourly forecasts, and 7-day predictions. Features include location-based weather, weather alerts, and interactive maps. Powered by OpenWeather API and built with React and Tailwind CSS.',

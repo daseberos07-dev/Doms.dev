@@ -1,0 +1,124 @@
+/* ========== Layout Container ========== */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Title */
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Wrapper for left + right columns */
+.contact-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #81808000;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  width: 100%;
+  gap: 60px;
+}
+
+/* Left Text */
+.contact-left {
+}
+
+.contact-text {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* Right Form */
+.contact-form {
+  flex: 1;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Button */
+.contact-form button {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: #4338ca;
+  transform: scale(1.03);
+}
+
+.contact-form button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Alerts */
+.alert {
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.alert.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.alert.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 25px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-text {
+    text-align: center;
+  }
+}
