@@ -39,6 +39,16 @@ const AboutSection = ({ setModalOpen, modalOpen }) => {
         <div className="about-titles-grid">
           {aboutCards.map((card, i) => (
             <button
+
+              style={{
+                backgroundImage: `url(${card.image})`,
+                backgroundSize: 'cover',       // cover the whole button
+                backgroundPosition: 'center',  // center the image
+                backgroundRepeat: 'no-repeat',
+                fontSize: '1.2rem',
+              }}
+
+
               key={i}
               type="button"
               className="title-btn"

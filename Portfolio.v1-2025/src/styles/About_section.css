@@ -29,7 +29,7 @@
 .title-btn {
   background: transparent;
   border: 2px solid #0ff;
-  color: #0ff;
+  color: rgba(172, 137, 255, 0.493);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -45,8 +45,9 @@
 }
 
 .title-btn:hover {
+  border: 2px solid rgb(47, 123, 255);
   background: #0ff;
-  color: #000;
+  color: #959595;
   transform: translateY(-2px) scale(0.9);
 }
 
@@ -60,10 +61,10 @@
 }
 
 
-/* Modal styles */
 /* ===========================
    💠 ABOUT MODAL STYLES
-   =========================== */.about-modal-overlay {
+   =========================== */
+.about-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
@@ -97,6 +98,7 @@
   inset: 0;
   background: rgba(0,0,0,0.5);
   z-index: 0;
+  border: 2px solid rgba(56, 56, 56, 0.61);
 }
 
 /* All text goes above the overlay */
