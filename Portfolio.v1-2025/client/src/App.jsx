@@ -28,12 +28,12 @@ function App() {
       content: (
         <HeroSection />
       ),
-      color: "#111",
+      color: "",
     },
     {
       id: 2,
        content: <AboutSection setModalOpen={setModalOpen} modalOpen={modalOpen} />,
-       color: "#111",
+       color: "",
     },
     {
       id: 3,
@@ -43,7 +43,7 @@ function App() {
         
         </section>
       ),
-      color: "#111",
+      color: "",
     },
     {
       id: 4,
@@ -53,7 +53,7 @@ function App() {
         
         </section>
       ),
-      color: "#111",
+      color: "",
     },
   ];
   
@@ -111,7 +111,6 @@ function App() {
 // 🧠 Effect 2: Modal open/close behavior & console logs
 useEffect(() => {
   if (modalOpen) {
-    console.log("Modal is open — scroll disabled ✅");
     document.body.style.overflow = "hidden";
   } else {
     console.log("Modal closed — scroll enabled ♻️");
@@ -123,67 +122,72 @@ useEffect(() => {
   return (
     <>
 
-      {/* NAVBAR */}
-      <header className="navbar">
-        <div className="navbar-content">
-          <h1 className="logo-name">Doms.dev</h1>
-          {/* Hamburger Icon (Visible on mobile) */}
-          <div
-            className="menu-toggle"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
-            ☰
-          </div>
-
-          {/* Navigation Links */}
-         <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
-            {sections.map((sec, i) => (
-              <a
-                key={sec.id}
-                onClick={() => {
-                  setActiveIndex(i);
-                  setMenuOpen(false);
-                  setModalOpen(false); // ✅ Close modal on nav click
-                }}
-                className={i === activeIndex ? "active" : ""}
+          {/* NAVBAR */}
+          <header className="navbar">
+            <div className="navbar-content">
+              <h1 className="logo-name">Doms.dev</h1>
+              {/* Hamburger Icon (Visible on mobile) */}
+              <div
+                className="menu-toggle"
+                onClick={() => setMenuOpen((prev) => !prev)}
               >
-                {["Home", "About", "Projects", "Contact"][i]}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
+                ☰
+              </div>
+
+              {/* Navigation Links */}
+            <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
+                {sections.map((sec, i) => (
+                  <a
+                    key={sec.id}
+                    onClick={() => {
+                      setActiveIndex(i);
+                      setMenuOpen(false);
+                      setModalOpen(false); // ✅ Close modal on nav click
+                    }}
+                    className={i === activeIndex ? "active" : ""}
+                  >
+                    {["Home", "About", "Projects", "Contact"][i]}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </header>
 
 
-       <div className="sections">
-        {sections.map((sec, i) => (
-          <div
-            key={sec.id}
-            className={`section ${i === activeIndex ? "active" : ""}`}
-            style={{ backgroundColor: sec.color }}
-          >
-            {sec.content}
-          </div>
-        ))}
-      </div>
+          {/* MAIN CONTENT */}
+          <main>
+            <div className="sections">
+                {sections.map((sec, i) => (
+                  <div
+                    key={sec.id}
+                    className={`section ${i === activeIndex ? "active" : ""}`}
+                    style={{ backgroundColor: sec.color }}
+                  >
+                    {sec.content}
+                  </div>
+                ))}
+            </div>
+          </main>
 
 
+        {/* FOOTER SECTIOn */}
+            <footer>
+              <div className="footer-section">
+                <ul className="list-icons">
+                  <a href=""><img src={github} alt="" /></a>
+                  <a href=""><img src={tg} alt="" /></a>
+                  <a href=""><img src={gmail} alt="" /></a>
+                  <a href=""><img src={linkedIn} alt="" /></a>
 
-      {/* FOOTER SECTIOn */}
-      <footer>
-        <div className="footer-section">
-           <ul className="list-icons">
-            <a href=""><img src={github} alt="" /></a>
-            <a href=""><img src={tg} alt="" /></a>
-            <a href=""><img src={gmail} alt="" /></a>
-            <a href=""><img src={linkedIn} alt="" /></a>
+                </ul>
+                <ul className="list-content">
+                  
+                </ul>
+              </div>
+            </footer>
 
-           </ul>
-           <ul className="list-content">
-            
-           </ul>
-        </div>
-      </footer>
+    
+
 
      
     </>

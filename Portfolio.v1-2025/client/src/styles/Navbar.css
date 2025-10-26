@@ -39,7 +39,6 @@
   }
 
   .navbar-content.open {
-    display: flex;
 
   }
 
@@ -73,16 +72,12 @@
   }
 }
 
-
-
 /* 🌟 Navbar Base */
 .navbar {
-  position: fixed;
   display: flex;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: center;
   color: #fff;
@@ -91,7 +86,8 @@
 }
 
 .navbar-content {
-  width: 100%;
+  padding: 1rem 0;
+  width: 95%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
@@ -107,21 +103,50 @@
 .navbar-links {
   display: flex;
   gap: 2rem;
+
 }
 
-.navbar-links a {
-  cursor: pointer;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: font-weight 0.4s ease, font-size 0.4s ease;
-}
+  .navbar-links a {
+      position: relative;
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+      color: #fffdfd;
+      text-decoration: none;
+      font-weight: 600;
+      transition: font-weight 0.4s ease, font-size 0.4s ease, color 0.4s ease;
+      z-index: 100;
+    }
+
 
 .navbar-links a.active,
-.navbar-links a:hover {
-  color: #61dafb;
-  font-size: 1.3rem;
-}
+    .navbar-links a:hover {
+      color: #a779f7;
+      transform: scale(1.2);
+      transition: all 0.5s ease;
+    }
+
+    /* Background that expands from center */
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0%;
+      height: 80%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease;
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .navbar-links a:hover::after,
+    .navbar-links a.active::after {
+      width: 100%;
+      border: 2px solid #8876ff;
+
+    }
+ 
+
 
 /* Ensure navbar link text is non-selectable (override global exceptions) */
 .navbar-links a,
@@ -142,44 +167,47 @@
 /* Responsive Mode */
 @media (max-width: 768px) {
   
+  .navbar {
+    padding: 0;
+
+  }
   .navbar-content{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
     width: 100%;
+    margin: 0;
+    padding: 0.5rem 1rem;
 
   }
   .logo-name{
-    position: absolute;
-    right: 25px;
     font-size: 1.3rem;
   }
   .menu-toggle {
-    position: absolute;
-    left: 1.2rem;
     display: block;
   }
 
   .navbar-links {
     position: absolute;
-    left: 25px;
-    top: 75px;
+    left: 4vw;
+    top: 45px;
     width: fit-content;
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem 0;
-    transform: translateY(-140%);
+    transform: translateY(-200%);
     transition: transform 1s ease;
-    
     pointer-events: none;
+    z-index: 200;
+
   }
 
-    .navbar-links a{
-      border-bottom: 2px solid #5f5d5d;
-      width: fit-content;
-      color: #b4e5f2;
-    }
   .navbar-links.open {
     transform: translateY(0);
     pointer-events: all;
   }
+ 
+  .navbar-links a{
+    font-size: 0.6rem;
+  }
+
 }
