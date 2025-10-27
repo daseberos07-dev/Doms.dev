@@ -42,10 +42,6 @@ const AboutSection = ({ setModalOpen, modalOpen }) => {
 
               style={{
                 backgroundImage: `url(${card.image})`,
-                backgroundSize: 'cover',       // cover the whole button
-                backgroundPosition: 'center',  // center the image
-                backgroundRepeat: 'no-repeat',
-                fontSize: '1.2rem',
               }}
 
 
@@ -72,7 +68,6 @@ const AboutSection = ({ setModalOpen, modalOpen }) => {
     aria-modal="true"
     style={{ backgroundImage: `url(${modalContent.image || ''})` }}
   >
-    <button className="about-modal-close" onClick={closeModal}>✕</button>
 
     <div className="about-modal-title-wrapper">
       <h2>{modalContent.title}</h2>

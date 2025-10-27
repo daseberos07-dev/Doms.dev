@@ -2,11 +2,16 @@
 /* ABOUT */
 .about-section {
   color: #0ff;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+
 }
+
+
+
 
 .titles-container {
   position: relative;
@@ -17,19 +22,11 @@
   align-items: center;
 }
 
-.about-titles-grid {
-  display: grid;
-  /* responsive: auto-fit columns that are at least 180px wide, otherwise stretch */
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  align-items: stretch; /* ensure children stretch to equal height */
-}
 
 .title-btn {
-  border: 2px solid #0ff;
+  border: 2px solid rgb(111, 113, 113);
   color: rgb(255, 255, 255);
-  outline:2px solid rgb(84, 124, 255);
+  outline:2px solid rgb(49, 48, 48);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -46,9 +43,6 @@
 
 .title-btn:hover {
   border: 2px solid rgb(47, 123, 255);
-  background: #0ff;
-  color: #959595;
-  transform: translateY(-2px) scale(0.9);
 }
 
 /* Ensure title buttons are not selectable (override global exceptions) */
@@ -165,14 +159,6 @@
 @keyframes contentIn { from { opacity: 0; transform: translateY(10px) scale(0.98) } to { opacity: 1; transform: translateY(0) scale(1) } }
 @keyframes contentOut { from { opacity: 1; transform: translateY(0) scale(1) } to { opacity: 0; transform: translateY(6px) scale(0.98) } }
 
-/* Responsive: modal body stacked on mobile, text left on larger screens */
-@media (min-width: 768px) {
-  .about-modal-body-wrapper {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-}
-
 
 
 
@@ -286,8 +272,52 @@
   color: #555;
 }
 
+
+/* GRID */
+.about-titles-grid {
+  display: grid;
+  /* responsive: auto-fit columns that are at least #px wide, otherwise stretch */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch; 
+}
+
+
+/* Responsive: modal body stacked on mobile, text left on larger screens */
+@media (min-width: 768px) {
+  .about-modal-body-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
 /* Responsive: stack on mobile */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  
+    .about-section{
+      padding-top: 2px;
+    }
+      /* GRID */
+    .about-titles-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* 👈 single column layout */
+      gap: 1rem;
+      height: 100%;
+      width: 100%;
+      align-items: stretch;
+
+      max-width: 400px;      /* limit grid width */
+      margin: 0 auto; 
+    }
+
+  .title-btn {
+    aspect-ratio: unset;   /* remove the forced height ratio */
+    height: 7vh;          /* give it a fixed height */
+    font-size: 0.9rem;     /* smaller text */
+  }
+
+  
   .education-container {
     flex-direction: column;
     align-items: center;
@@ -297,25 +327,12 @@
   .education-description {
     flex: unset;
   }
-}
-/* Ensure mobile shows 2 columns and stays centered (avoid overlap with header/footer) */
-
-@media (max-width: 630px) {
-  .about-section {
-    padding-top: 180px; 
-    padding-bottom: 80px; /* create space from footer */
-  }
 
   .titles-container {
     max-width: 95vw;
     margin: 0 auto;
   }
 
-  .about-titles-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  
   .skill-icon{
     width: 25px;
     height: 25px;
@@ -335,4 +352,77 @@
   .skill-category ul li{
     font-size: 0.8rem;
   }
+}
+
+
+
+
+@media (max-width: 480px) {
+ .about-titles-grid {
+  max-width: 80%;
+ }
+}
+
+@media (max-width: 320px) {
+    .about-titles-grid {
+      gap: 0.5rem;
+    }
+
+    .title-btn{
+      font-size: 0.7rem;
+    }
+
+    .about-modal-close{
+      position: absolute;
+      z-index: 500;
+      top: 0;
+      right: 5vw;
+    }
+
+    .about-modal-content{
+      height: 60vh;
+    }
+
+
+    .about-modal-body-wrapper{
+      overflow-y: auto;
+    }
+}
+
+
+/* HOVER ANIMATION */
+  .title-btn {
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position-y:40px ;
+
+}
+
+.title-btn:nth-child(1):hover{
+  background-position: left;
+}
+.title-btn:nth-child(2):hover{
+  background-position: right;
+}
+.title-btn:nth-child(3):hover{
+  background-position: 0;
+}
+.title-btn:nth-child(4):hover{
+  background-position-y: -10px;
+}
+.title-btn:nth-child(5):hover{
+  background-position: left;
+}
+.title-btn:nth-child(6):hover{
+  background-position: right;
+
+}
+.title-btn:nth-child(7):hover{
+  background-position: left;
+}
+
+.title-btn:nth-child(8):hover{
+  background-position: right;
 }
